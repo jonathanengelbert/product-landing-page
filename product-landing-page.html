@@ -17,6 +17,22 @@
     }
 
     /* ///////////////////////////////////////////////////////// */
+    /* TYPOGRAPHY */
+    /* ///////////////////////////////////////////////////////// */
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
     /* NAV BAR */
     /* ///////////////////////////////////////////////////////// */
 
@@ -224,6 +240,33 @@
 
 
     /* ///////////////////////////////////////////////////////// */
+    /* LESSONS  */
+    /* ///////////////////////////////////////////////////////// */
+
+    #video-container {
+        text-align: center;
+    }
+
+    #video {
+        width: 80%;
+        height: 500px;
+        text-align: center;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* FOOTER  */
+    /* ///////////////////////////////////////////////////////// */
+
+    footer {
+        background-color: grey;
+        height: 50px;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
     /* MEDIA QUERIES */
     /* ///////////////////////////////////////////////////////// */
 
@@ -271,14 +314,11 @@
         </ul>
     </nav>
     <main id="main-doc">
-        <article id="subscribe">
-            <form id="form" action="https://www.freecodecamp.com/email-submit">
-                <label for="email">Subscribe to our Weekly Newsletter</label>
-                <input id="email" type="email" name="email" placeholder="Enter your email address to subscribe">
-                <input id="submit" type="submit" value="Subscribe">
-            </form>
-            </form>
-        </article>
+
+        
+        <h1>Minerva Guitars</h1>
+        <h2>Serving Los Angeles since 1934</h2>
+
         <span id="guitars"></span>
         <article>
             <h3>Guitars</h3>
@@ -353,6 +393,7 @@
 
             </div>
         </article>
+
         <span id="accessories"></span>
         <article>
             <h3>Accessories</h3>
@@ -430,7 +471,27 @@
         <span id="lessons"></span>
         <article>
             <h3>Lessons</h3>
+            <div id="video-container">
+                <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/M-9O9RNLskw"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
         </article>
+
+        <article id="subscribe">
+            <form id="form" action="https://www.freecodecamp.com/email-submit">
+                <label for="email">Subscribe to our Weekly Newsletter</label>
+                <input id="email" type="email" name="email" placeholder="Enter your email address to subscribe">
+                <input id="submit" type="submit" value="Subscribe">
+            </form>
+            </form>
+        </article>
+
+        <footer>
+            Copyright 2020, Minerva Guitars
+        </footer>
+
     </main>
     </div>
 
@@ -476,6 +537,6 @@
 
 
 </script>
-<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
 
 </html>
