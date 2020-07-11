@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minerva Classical Guitars</title>
+</head>
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        /* background-color: #cfc5b9; */
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* NAV BAR */
+    /* ///////////////////////////////////////////////////////// */
+
+    #nav-bar {
+        /* position: fixed; */
+        background-color: white;
+        display: flex;
+        width: 100vw;
+        height: 100px;
+        top: 0;
+        z-index: 1;
+        border-bottom: 4px solid black;
+        margin-bottom: 100px;
+        position: fixed;
+        padding-bottom: 15px;
+
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .logo img {
+        max-height: 100%;
+        height: auto;
+    }
+
+    #nav-bar ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .nav-link {
+        color: black;
+        text-decoration: none;
+        padding: 20px;
+        font-size: 1.5rem;
+        height: 100px;
+    }
+
+    .nav-link:hover {
+        color: #fc8f00;
+    }
+
+    nav li:last-of-type {
+        margin-right: 100px;
+    }
+
+    #menu-button {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 30px;
+        /* while screen-width not below 594px: */
+        display: none;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* SIDE NAV BAR FOR RESPONSIVE LAYOUT */
+    /* ///////////////////////////////////////////////////////// */
+
+    #side-nav {
+        position: fixed;
+        top: 0;
+        right: -75vw;
+        background-color: lightgray;
+        z-index: 5;
+        width: 75vw;
+        height: 100vh;
+    }
+
+    .side-nav-active {
+        transform: translate(-75vw);
+        transition: transform .5s;
+    }
+
+    #side-nav ul {
+        margin-top: 100px;
+    }
+
+    #side-nav ul li {
+        list-style: none;
+        padding: 30px;
+        color: red;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* OVERLAY */
+    /* ///////////////////////////////////////////////////////// */
+
+    #overlay {
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.6);
+        /* Black fallback color */
+        /* Black w/opacity */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 4;
+    }
+
+    .overlay-active {
+        width: 100vw;
+    }
+
+    main {
+        margin-top: 160px;
+        /* 100px height + 20px padding + 40px whitespace (#nav-bar*/
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* ARTICLE */
+    /* ///////////////////////////////////////////////////////// */
+
+    article {
+        width: 100;
+        /* background-color: red; */
+        margin: 0 auto;
+        margin-top: 100px;
+        padding: 10px;
+    }
+
+    article h3 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* SUBSCRIBE */
+    /* ///////////////////////////////////////////////////////// */
+
+    #subscribe form {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
+        /* padding: 100px; */
+    }
+
+    #subscribe form label {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    #subscribe form input {
+        min-width: 50%;
+        /* max-width: 50%; */
+        height: 40px;
+        font-size: 20px;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    #subscribe form input[type=submit] {
+        width: 25%;
+    }
+
+    /* ///////////////////////////////////////////////////////// */
+    /* PRODUCTS */
+    /* ///////////////////////////////////////////////////////// */
+
+    .products-container {
+        display: flex;
+        justify-content: space-between;
+        overflow-y: scroll;
+    }
+
+    .products-container a {
+        color: rgb(96, 107, 206);
+        text-decoration: none;
+    }
+
+    .product {
+        /* background-color: lawngreen; */
+        height: 350px;
+        width: 300px;
+        /* flex-direction: column; */
+        flex: 1 0 250px;
+        justify-content: space-around;
+        align-content: center;
+        text-align: center;
+        border: 1px solid lightgray
+    }
+
+
+    .product-image {
+        width: 80%;
+        max-height: 70%;
+    }
+
+    .product p:last-child {
+        font-size: 20px;
+        color: red;
+    }
+
+
+    /* ///////////////////////////////////////////////////////// */
+    /* MEDIA QUERIES */
+    /* ///////////////////////////////////////////////////////// */
+
+    /* 810px and below*/
+    @media screen and (max-width: 810px) {
+        #nav-bar ul .nav-link {
+            display: none;
+        }
+
+        #menu-button {
+            display: inline-flex;
+        }
+    }
+</style>
+
+<body>
+    <header id="header">
+        <nav id="nav-bar">
+            <div class="logo">
+                <img id="header-img" src="./images/gitar.jpg" alt="Minerva Logo">
+            </div>
+            <div class="logo">
+                <h2>Minerva Guitars</h2>
+            </div>
+            <ul>
+                <li><a href="#guitars" class="nav-link">Guitars</a></li>
+                <li><a href="#accessories" class="nav-link">Accessories</a></li>
+                <li><a href="#lessons" class="nav-link">Lessons</a></li>
+            </ul>
+
+            <div id="menu-button">
+                <svg viewBox="0 0 100 80" width="50" height="50">
+                    <rect width="100" height="20"></rect>
+                    <rect y="30" width="100" height="20"></rect>
+                    <rect y="60" width="100" height="20"></rect>
+                </svg>
+            </div>
+        </nav>
+    </header>
+    <nav id="side-nav">
+        <ul>
+            <li><a href="" class="nav-link">Guitars</a></li>
+            <li><a href="" class="nav-link">Accessories</a></li>
+            <li><a href="" class="nav-link">Lessons</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <article id="subscribe">
+            <form id="form" action="https://www.freecodecamp.com/email-submit">
+                <label for="email">Subscribe to our Weekly Newsletter</label>
+                <input id="email" type="email" name="email" placeholder="Enter your email address to subscribe">
+                <input id="submit" type="submit" value="Subscribe">
+            </form>
+            </form>
+        </article>
+        <span id="guitars"></span>
+        <article>
+            <h3>Guitars</h3>
+            <div class="products-container">
+
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/yamaha.png" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$300</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/yamaha.png" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$300</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/yamaha.png" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$300</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/yamaha.png" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$300</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/yamaha.png" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$300</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/yamaha.png" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </article>
+        <span id="accessories"></span>
+        <article>
+            <h3>Accessories</h3>
+            <div class="products-container">
+
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/tuning.jpg" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/tuning.jpg" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/tuning.jpg" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/tuning.jpg" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/tuning.jpg" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="product">
+                        <img class="product-image" src="./images/tuning.jpg" alt="yamaha guitar">
+                        <div class="product-description">
+                            <p>Yamaha P70 Classical Guitar</p>
+                            <strong>
+                                <p>$54.99</p>
+                            </strong>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </article>
+
+        <span id="lessons"></span>
+        <article>
+            <h3>Lessons</h3>
+        </article>
+    </main>
+    </div>
+
+    <div id='overlay'></div>
+</body>
+
+<script>
+
+    function handleSideNav() {
+        if (!state.sideNavActive) {
+            sideNav.classList.add('side-nav-active');
+            overlay.classList.add('overlay-active');
+            return state.sideNavActive = true;
+        }
+        sideNav.classList.remove('side-nav-active');
+        console.log('here');
+        overlay.classList.remove('overlay-active');
+        return state.sideNavActive = false;
+
+    }
+
+
+    // STATE
+    const state = {
+        sideNavActive: false
+    }
+
+
+    let sideNav = document.getElementById("side-nav");
+
+    // Handles click on button
+    const menuButton = document.getElementById("menu-button");
+    menuButton.addEventListener("click", () => {
+        handleSideNav();
+    });
+
+    const overlay = document.getElementById("overlay");
+    overlay.addEventListener("click", () => {
+        handleSideNav();
+    });
+
+
+
+
+</script>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+</html>
